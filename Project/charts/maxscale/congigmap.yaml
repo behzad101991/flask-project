@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maxscaleconfig
+data:
+  maxscale.cnf: |
+  
+
+    [Splitter-Service]
+    type=service
+    router=readwritesplit
+    servers=server1, server2
+    user=root
+    password=behzad
+
+    [server1]
+    type=server
+    address=10.104.234.32
+    port=3306
+    protocol=MariaDBBackend
+
+    [server2]
+    type=server
+    address=10.100.5.114
+    port=3306
+    protocol=MariaDBBackend
+
+
+
+    [MariaDB-Monitor]
+    type=monitor
+    module=mariadbmon
+    servers=server1,server2
+    user=root
+    password=behzad
+    monitor_interval=2000ms
+    auto_failover=true
+    auto_rejoin=true
+
+
+
+
+    [Splitter-Listener]
+    type=listener
+    service=Splitter-Service
+    protocol=MySQLClient
+    port=4006

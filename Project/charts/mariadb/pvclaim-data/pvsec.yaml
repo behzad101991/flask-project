@@ -1,0 +1,14 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: 'mypvsec'
+spec:
+  capacity:
+    storage: 10Gi                 
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain   
+  storageClassName: manualsec
+  hostPath:
+    path: /mnt/pv-datasec
