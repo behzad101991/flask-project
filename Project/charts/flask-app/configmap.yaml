@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: game-demo
 data:
-    host: "10.104.249.100"
+    host: "max-maxscale"
     port: "4006"
     name: app

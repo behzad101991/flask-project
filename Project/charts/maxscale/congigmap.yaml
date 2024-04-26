@@ -15,13 +15,13 @@ data:
 
     [server1]
     type=server
-    address=10.104.234.32
+    address=mariadb-primary
     port=3306
     protocol=MariaDBBackend
 
     [server2]
     type=server
-    address=10.100.5.114
+    address=mariadb-secondary
     port=3306
     protocol=MariaDBBackend
 
